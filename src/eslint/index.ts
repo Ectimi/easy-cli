@@ -1,5 +1,5 @@
 import {ESLint} from 'eslint';
-import { getCwdPath, loggerTiming, loggerError, getDirPath } from '@/util'
+import { getCwdPath, loggerTiming, loggerError, getDirPath } from '../util'
 import ora from "ora";
 
 const eslint = new ESLint({
@@ -18,6 +18,9 @@ const eslint = new ESLint({
         },
         "ecmaVersion": 12,
         "sourceType": "module"
+      },
+      "rules":{
+        "quotes": ["error", "double"]
       },
       "plugins": [
         "@typescript-eslint",
