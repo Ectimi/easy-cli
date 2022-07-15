@@ -29,8 +29,6 @@ program
       generateTemplate(name,options)
     })
 
-    // bin/cli.js
-
 program
 // 监听 --help 执行
 .on('--help', () => {
