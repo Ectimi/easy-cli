@@ -1,7 +1,9 @@
 {
-  "name": "easy-cli",
+  "name": "easy-cli2",
   "version": "1.0.0",
-  "description": "",
+  "description": "一个简易的脚手架，提供eslint格式化检查，创建项目模板，自动部署功能",
+  "homepage": "https://github.com/Ectimi/easy-cli",
+  "repository": "https://github.com/Ectimi/easy-cli",
   "main": "index.js",
   "commandName": "easy",
   "bin": {
@@ -11,8 +13,16 @@
     "prepublish": "tsc",
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "easy",
+    "easy-cli",
+    "cli",
+    "脚手架"
+  ],
+  "author": "Yangjunjie",
   "license": "ISC",
   "devDependencies": {
     "@types/eslint": "^8.4.5",
