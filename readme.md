@@ -1,6 +1,9 @@
 ## easy-cli
 一个简易的脚手架工具
 
+### 安装
+npm i -g easy-cli2
+
 ### 使用
 easy <命令名>
 
