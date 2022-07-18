@@ -1,48 +1,47 @@
 #!/usr/bin/env node
-import chalk from 'chalk'
-import figlet from 'figlet'
+import chalk from 'chalk';
+import figlet from 'figlet';
+import allCommand from '../module';
 import { Command } from 'commander';
-import { getEslint } from '../eslint'
-import {generateTemplate} from '../template'
 
-const packageInfo = require('../../package.json')
-const cliName = packageInfo.name
-const version = `v${packageInfo.version}`
+const packageInfo = require('../../package.json');
+const commandName = packageInfo.commandName;
+const version = `v${packageInfo.version}`;
 const program = new Command();
 
-program
-  .version(version)
-  .usage('<command> [option]')
+program.version(version).usage('<command> [option]');
+
+allCommand.forEach((config) => {
+  const { description, command, option, action } = config;
+  const cmd = program
+    .description(description)
+    .command(command)
+    .action((...args) => action(...args));
+
+  if (option) {
+    cmd.option(option.command, option.description);
+  }
+});
 
 program
-  .description('start eslint and fix code')
-  .command('eslint')
-  .action((value) => {
-    getEslint()
-  })
+  // 监听 --help 执行
+  .on('--help', () => {
+    console.log(
+      '\r\n' +
+        figlet.textSync(commandName, {
+          font: 'Ghost',
+          horizontalLayout: 'default',
+          verticalLayout: 'default',
+          width: 80,
+          whitespaceBreak: true,
+        })
+    );
 
-  program
-    .description('create a new project')
-    .command('create <project-name>')
-    .option('-f --force','overwrite target directory if it exist')
-    .action((name,options)=>{
-      generateTemplate(name,options)
-    })
-
-program
-// 监听 --help 执行
-.on('--help', () => {
-  console.log('\r\n' + figlet.textSync(cliName, {
-    font: 'Ghost',
-    horizontalLayout: 'default',
-    verticalLayout: 'default',
-    width: 80,
-    whitespaceBreak: true
-  }));
-
-  console.log(`\r\nRun ${chalk.cyan(`${cliName} <command> --help`)} for detailed usage of given command\r\n`)
-})
-
-
+    console.log(
+      `\r\nRun ${chalk.cyan(
+        `${commandName} <command> --help`
+      )} for detailed usage of given command\r\n`
+    );
+  });
 
 program.parse(process.argv);

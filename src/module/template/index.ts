@@ -1,11 +1,13 @@
-import path from "path";
-import fs from "fs-extra";
-import inquirer from "inquirer";
-import chalk from "chalk";
-import ora from "ora";
-import util from "util";
-import tmp from "tmp";
-import downloadGitRepo from "download-git-repo";
+import path from 'path';
+import fs from 'fs-extra';
+import inquirer from 'inquirer';
+import chalk from 'chalk';
+import ora from 'ora';
+import util from 'util';
+import tmp from 'tmp';
+import downloadGitRepo from 'download-git-repo';
+import { TCommand } from '../../types';
+import { loggerInfo, loggerSuccess, loggerError } from '../../util';
 
 const downloadGit: any = util.promisify(downloadGitRepo);
 
@@ -22,7 +24,7 @@ async function wrapLoading(
     spinner.succeed();
     return result;
   } catch (error) {
-    spinner.fail("Request failed, pleact check the network ...");
+    spinner.fail('Request failed, pleact check the network ...');
   }
 }
 
@@ -38,16 +40,16 @@ export const generateTemplate = async (
     } else {
       let { action } = await inquirer.prompt([
         {
-          name: "action",
-          type: "list",
-          message: "Target directory already exists,pick an action:",
+          name: 'action',
+          type: 'list',
+          message: 'Target directory already exists,pick an action:',
           choices: [
             {
-              name: "Overwrite",
-              value: "overwrite",
+              name: 'Overwrite',
+              value: 'overwrite',
             },
             {
-              name: "Cancel",
+              name: 'Cancel',
               value: false,
             },
           ],
@@ -55,8 +57,8 @@ export const generateTemplate = async (
       ]);
 
       if (!action) return;
-      else if (action === "overwrite") {
-        console.log("\r\nRemoving...");
+      else if (action === 'overwrite') {
+        console.log('Removing...');
         await fs.remove(targetDir);
       }
     }
@@ -70,16 +72,16 @@ export const generateTemplate = async (
     try {
       await wrapLoading(
         downloadGit, // 远程下载方法
-        "loading template , please wait...", // 加载提示信息
+        'loading template , please wait...', // 加载提示信息
         requestUrl, // 参数1: 下载地址
         path.resolve(tmpobj.name)
       ); // 参数2: 创建位置
       const types = await fs.readdir(tmpobj.name);
       const { type } = await inquirer.prompt([
         {
-          name: "type",
-          type: "list",
-          message: "Please select template type:",
+          name: 'type',
+          type: 'list',
+          message: 'Please select template type:',
           choices: types.map((name) => ({
             name,
             value: name,
@@ -90,12 +92,11 @@ export const generateTemplate = async (
       if (!type) return;
       else {
         const templates = await fs.readdir(path.resolve(tmpobj.name, type));
-        console.log("templates=>", templates);
         const { templateName } = await inquirer.prompt([
           {
-            name: "templateName",
-            type: "list",
-            message: "Please select a template:",
+            name: 'templateName',
+            type: 'list',
+            message: 'Please select a template:',
             choices: templates.map((name) => ({
               name,
               value: name,
@@ -113,17 +114,27 @@ export const generateTemplate = async (
       }
       await fs.emptyDir(tmpobj.name);
       tmpobj.removeCallback();
-      console.log(`\r\nSuccessfully created project ${chalk.cyan(name)}`);
-      console.log(`\r\n  cd ${chalk.cyan(name)}`);
+      loggerSuccess(`Successfully created project ${chalk.cyan(name)}`);
+      loggerSuccess(`cd ${chalk.cyan(name)}`);
     } catch (error) {
       await fs.emptyDir(tmpobj.name);
       tmpobj.removeCallback();
-      await fs.remove(targetDir)
-      console.log("\r\ncreate failed");
-      console.log("\r\ncheck error");
-      console.log(`\r\n${chalk.red(error)}`);
+      await fs.remove(targetDir);
+      loggerError('create failed');
+      loggerError('check error');
+      loggerError(`${error}`);
     }
   }
 
   create(targetDir);
+};
+
+export const createCommad: TCommand = {
+  description: 'create a new project',
+  command: 'create <project-name>',
+  option: {
+    command: '-f --force',
+    description: 'overwrite target directory if it exist',
+  },
+  action: generateTemplate,
 };

@@ -24,20 +24,25 @@ export const loggerTiming = (str: string = '', start: boolean = true) => {
 
 // 普通日志
 export const loggerInfo = (str: string = '') => {
-  console.log(chalk.green(`[INFO]： ${str}`));
+  console.log(chalk.green(`\r\n[INFO]： ${str}`));
 }
 
 // 警告日志
 export const loggerWarring = (str: string = '') => {
-  console.log(chalk.yellowBright(`[WARRING]： ${str}`));
+  console.log(chalk.yellowBright(`\r\n[WARRING]： ${str}`));
 }
 
 // 成功日志
 export const loggerSuccess = (str: string = '') => {
-  console.log(chalk.greenBright(`[SUCCESS]： ${str}`));
+  console.log(chalk.greenBright(`\r\n[SUCCESS]： ${str}`));
 }
 
 // 报错日志
 export const loggerError = (str: string = '') => {
-  console.log(chalk.redBright(`[ERROR]： ${str}`));
+  console.log(chalk.redBright(`\r\n[ERROR]： ${str}`));
+}
+
+// 下划线重点输出
+export const loggerUnderline = (str:string = '')=>{
+  return chalk.blue.underline.bold(str)
 }

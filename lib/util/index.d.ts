@@ -5,3 +5,4 @@ export declare const loggerInfo: (str?: string) => void;
 export declare const loggerWarring: (str?: string) => void;
 export declare const loggerSuccess: (str?: string) => void;
 export declare const loggerError: (str?: string) => void;
+export declare const loggerUnderline: (str?: string) => string;

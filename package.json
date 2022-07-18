@@ -1,9 +1,12 @@
 {
-  "name": "easy",
+  "name": "easy-cli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "bin": "/lib/bin/index.js",
+  "commandName": "easy",
+  "bin": {
+    "easy": "/lib/bin/index.js"
+  },
   "scripts": {
     "prepublish": "tsc",
     "build": "tsc"
@@ -17,18 +20,23 @@
     "@typescript-eslint/parser": "^5.30.6"
   },
   "dependencies": {
+    "@types/archiver": "^5.3.1",
     "@types/figlet": "^1.5.4",
     "@types/fs-extra": "^9.0.13",
     "@types/inquirer": "^8.2.1",
+    "@types/jsonfile": "^6.1.0",
     "@types/shelljs": "^0.8.11",
     "@types/tmp": "^0.2.3",
+    "archiver": "^5.3.1",
     "chalk": "^4.1.2",
     "commander": "^9.3.0",
     "download-git-repo": "^3.0.2",
     "figlet": "^1.5.2",
     "fs-extra": "^10.1.0",
     "inquirer": "^8.1.2",
+    "jsonfile": "^6.1.0",
     "latest-version": "^7.0.0",
+    "node-ssh": "^12.0.4",
     "ora": "^5.4.1",
     "shelljs": "^0.8.5",
     "tmp": "^0.2.1"
