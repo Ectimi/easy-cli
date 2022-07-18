@@ -1,6 +1,6 @@
 {
   "name": "easy-cli2",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "一个简易的脚手架，提供eslint格式化检查，创建项目模板，自动部署功能",
   "homepage": "https://github.com/Ectimi/easy-cli",
   "repository": "https://github.com/Ectimi/easy-cli",
