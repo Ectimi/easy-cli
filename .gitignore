@@ -20,3 +20,5 @@
 /.env.local
 
 /deploy_config.json
+/lib
+/dist
