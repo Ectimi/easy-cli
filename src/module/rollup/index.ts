@@ -1,6 +1,5 @@
 import ora from 'ora';
 import inquirer from 'inquirer';
-import fs from 'fs-extra';
 import {
   rollup,
   InternalModuleFormat,
@@ -117,9 +116,11 @@ async function getOptions(
 export const rollupCommand: TCommand = {
   description: 'use rollup build project',
   command: 'rollup',
-  option: {
-    command: '-d --default',
-    description: 'use default config to build',
-  },
+  options: [
+    {
+      command: '-d --default',
+      description: 'use default config to build',
+    },
+  ],
   action: buildRollup,
 };

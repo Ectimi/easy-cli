@@ -132,9 +132,11 @@ export const generateTemplate = async (
 export const createCommad: TCommand = {
   description: 'create a new project',
   command: 'create <project-name>',
-  option: {
-    command: '-f --force',
-    description: 'overwrite target directory if it exist',
-  },
+  options: [
+    {
+      command: '-f --force',
+      description: 'overwrite target directory if it exist',
+    },
+  ],
   action: generateTemplate,
 };

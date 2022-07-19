@@ -1,10 +1,10 @@
 export type TCommand = {
   description: string;
   command: string;
-  option?: {
+  options?: Array<{
     command: string;
     description: string;
-  };
+  }>;
   action: Function;
 };
 

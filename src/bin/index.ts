@@ -12,14 +12,16 @@ const program = new Command();
 program.version(version).usage('<command> [option]');
 
 allCommand.forEach((config) => {
-  const { description, command, option, action } = config;
+  const { description, command, options, action } = config;
   const cmd = program
     .description(description)
     .command(command)
     .action((...args) => action(...args));
 
-  if (option) {
-    cmd.option(option.command, option.description);
+  if (options) {
+    options.forEach((option) => {
+      cmd.option(option.command, option.description);
+    });
   }
 });
 
