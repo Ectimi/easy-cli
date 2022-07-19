@@ -17,7 +17,7 @@ easy <命令名>
   前端：
     基础模板，不使用框架，包含jquery;
     vue3模板;
-    react模板（基于umi）
+    react模板（基于umi3.x）
 
   后端：
     koa模板
@@ -26,3 +26,7 @@ easy <命令名>
 + easy deploy
   
   自动部署
+
++ easy rollup [options]
+  
+  使用rollu构建当前项目，命令可选参数 -d / -default ，使用默认配置构建
