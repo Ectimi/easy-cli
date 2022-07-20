@@ -4,14 +4,17 @@ import { TCommand } from '../../types';
 
 export const Npm = (options: {
   check: boolean;
+  list: boolean;
   taobao: boolean;
   reset: boolean;
   url: string;
 }) => {
-  const { check, taobao, url, reset } = options;
+  const { check, list, taobao, url, reset } = options;
   try {
     if (check) {
       shell.exec('npm config get registry');
+    } else if (list) {
+      shell.exec('npm list -g --depth 0');
     } else if (reset) {
       shell.exec('npm config set registry https://registry.npmjs.org/');
       loggerSuccess('已npm源已重置');
@@ -36,6 +39,10 @@ export const npmCommand: TCommand = {
     {
       command: '-c --check',
       description: 'check npm registry',
+    },
+    {
+      command: '-l --list',
+      description: 'check global installed package',
     },
     {
       command: '-t --taobao',
