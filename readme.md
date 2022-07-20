@@ -35,11 +35,13 @@ easy <命令名>
 
   查看、设置、重置npm源。
 
-  easy npm -r   重置npm源
+  easy npm -r/--rest     重置npm源
 
-  easy npm -c  查看npm源
+  easy npm -l/--list     查看已安装的全局npm包
 
-  easy npm -t  把npm源设置为淘宝镜像
+  easy npm -c/--check    查看npm源
 
-  easy npm -u <链接>  设置npm源
+  easy npm -t/--taobao   把npm源设置为淘宝镜像
+
+  easy npm -u/--url      <链接>  设置npm源
   
