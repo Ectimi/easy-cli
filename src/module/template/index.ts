@@ -7,7 +7,7 @@ import util from 'util';
 import tmp from 'tmp';
 import downloadGitRepo from 'download-git-repo';
 import { TCommand } from '../../types';
-import { loggerInfo, loggerSuccess, loggerError } from '../../util';
+import { loggerSuccess, loggerError } from '../../util';
 
 const downloadGit: any = util.promisify(downloadGitRepo);
 

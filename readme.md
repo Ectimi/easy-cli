@@ -30,3 +30,16 @@ easy <命令名>
 + easy rollup [options]
   
   使用rollu构建当前项目，命令可选参数 -d / -default ，使用默认配置构建
+
++ easy npm [options]
+
+  查看、设置、重置npm源。
+
+  easy npm -r   重置npm源
+
+  easy npm -c  查看npm源
+
+  easy npm -t  把npm源设置为淘宝镜像
+
+  easy npm -u <链接>  设置npm源
+  
