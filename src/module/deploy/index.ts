@@ -17,7 +17,7 @@ import {
 const projectDir = process.cwd();
 const ssh = new NodeSSH();
 
-export const deploy = async () => {
+const deploy = async () => {
   try {
     const { projectName, config } = await getConfig();
 

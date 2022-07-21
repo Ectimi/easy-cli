@@ -45,3 +45,27 @@ easy <命令名>
 
   easy npm -u/--url      <链接>  设置npm源
   
++ easy x2j <file>
+
+  把 xlsx 文件转换为 json 文件
+
++ easy j2x <file>
+
+  把 json 文件转换为 xlsx 文件,json文件格式为：
+
+```json
+{
+  sheetname:[
+    {
+      attr1:'value',
+      attr2:'value'
+    }
+  ],
+  sheetname2:[
+    {
+      attr1:'value',
+      attr2:'value'
+    }
+  ]
+}
+```

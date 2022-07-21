@@ -3,6 +3,7 @@ import { createCommad } from './template';
 import { deployCommand } from './deploy';
 import { rollupCommand } from './rollup';
 import { npmCommand } from './npm';
+import { xlsxCommads } from './xlsx';
 
 export default [
   eslintCommad,
@@ -10,4 +11,5 @@ export default [
   deployCommand,
   rollupCommand,
   npmCommand,
+  ...xlsxCommads
 ];

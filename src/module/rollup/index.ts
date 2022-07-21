@@ -13,7 +13,7 @@ import {
 import { loggerTiming, loggerError, getCwdPath } from '../../util';
 import { TCommand } from '../../types';
 
-export const buildRollup = async (options: { default: boolean }) => {
+const buildRollup = async (options: { default: boolean }) => {
   const { inputOptions, outputOptions } = await getOptions(options.default);
 
   loggerTiming('ROLLUP BUILD');

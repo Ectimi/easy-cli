@@ -2,7 +2,7 @@ import shell from 'shelljs';
 import { loggerError, loggerSuccess } from '../../util';
 import { TCommand } from '../../types';
 
-export const Npm = (options: {
+const Npm = (options: {
   check: boolean;
   list: boolean;
   taobao: boolean;
