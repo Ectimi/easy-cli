@@ -11,6 +11,7 @@ easy <命令名>
 + easy eslint
   
    eslint格式化并检查代码
+   
 + easy create 项目名  
   模板列表：
 
@@ -45,11 +46,11 @@ easy <命令名>
 
   easy npm -u/--url      <链接>  设置npm源
   
-+ easy x2j <file>
++ easy x2j [file]
 
   把 xlsx 文件转换为 json 文件
 
-+ easy j2x <file>
++ easy j2x [file]
 
   把 json 文件转换为 xlsx 文件,json文件格式为：
 
