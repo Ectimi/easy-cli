@@ -4,7 +4,7 @@ import shelljs from 'shelljs';
 import { TCommand } from '../../types';
 import { getCwdPath, loggerSuccess, loggerError } from '../../util';
 
-async function xlsx2json(file: string) {
+async function xlsx2json(file: string, options: { output: string }) {
   try {
     const data: any[] = [];
     const workbook = XLSX.readFile(getCwdPath(file), { type: 'binary' });
@@ -24,7 +24,8 @@ async function xlsx2json(file: string) {
       Object.assign(result, data[i]);
     }
 
-    await jsonfile.writeFile(`output_${new Date().getTime()}.json`, result, {
+    const outputName = options.output || `output_${new Date().getTime()}`;
+    await jsonfile.writeFile(`${outputName}.json`, result, {
       spaces: 2,
     });
 
@@ -36,7 +37,7 @@ async function xlsx2json(file: string) {
   }
 }
 
-async function json2xlsx(file: string) {
+async function json2xlsx(file: string,options: { output: string }) {
   try {
     const workbook = XLSX.utils.book_new();
     const jsondata = await jsonfile.readFile(file);
@@ -50,7 +51,10 @@ async function json2xlsx(file: string) {
       const worksheet = XLSX.utils.json_to_sheet(arraydata[i]);
       XLSX.utils.book_append_sheet(workbook, worksheet, sheetNames[i], true);
     }
-    XLSX.writeFile(workbook, `output_${new Date().getTime()}.xlsx`);
+
+    const outputName = options.output || `output_${new Date().getTime()}`;
+    XLSX.writeFile(workbook, `${outputName}.xlsx`);
+
     loggerSuccess('转换完成');
     shelljs.exit(0);
   } catch (error) {
@@ -63,11 +67,23 @@ export const xlsxCommads: TCommand[] = [
   {
     description: 'convert xlsx to json',
     command: 'x2j <file>',
+    options: [
+      {
+        command: '-o --output <name>',
+        description: 'set output name',
+      },
+    ],
     action: xlsx2json,
   },
   {
     description: 'convert json to xlsx',
     command: 'j2x <file>',
+    options: [
+      {
+        command: '-o --output <name>',
+        description: 'set output name',
+      },
+    ],
     action: json2xlsx,
   },
 ];
