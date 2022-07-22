@@ -1,15 +1,18 @@
-import { eslintCommad } from './eslint';
 import { createCommad } from './template';
+import { compressImageCommand } from './compressImage';
 import { deployCommand } from './deploy';
-import { rollupCommand } from './rollup';
+import { eslintCommad } from './eslint';
 import { npmCommand } from './npm';
+import { rollupCommand } from './rollup';
+
 import { xlsxCommads } from './xlsx';
 
 export default [
-  eslintCommad,
   createCommad,
+  compressImageCommand,
   deployCommand,
-  rollupCommand,
+  eslintCommad,
   npmCommand,
-  ...xlsxCommads
+  rollupCommand,
+  ...xlsxCommads,
 ];
