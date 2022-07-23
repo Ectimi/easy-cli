@@ -1,6 +1,6 @@
 {
   "name": "easy-cli2",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "一个简易的脚手架，提供eslint格式化检查，创建项目模板，自动部署功能，xlsx与json互转，压缩图片等功能",
   "homepage": "https://github.com/Ectimi/easy-cli",
   "repository": "https://github.com/Ectimi/easy-cli",
@@ -44,9 +44,11 @@
     "@types/fs-extra": "^9.0.13",
     "@types/inquirer": "^8.2.1",
     "@types/jsonfile": "^6.1.0",
+    "@types/minify": "^9.1.0",
     "@types/rollup-plugin-postcss": "^3.1.4",
     "@types/shelljs": "^0.8.11",
     "@types/tmp": "^0.2.3",
+    "@types/try-to-catch": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
     "archiver": "^5.3.1",
@@ -60,9 +62,11 @@
     "figlet": "^1.5.2",
     "fs-extra": "^10.1.0",
     "gifsicle": "^5.2.1",
+    "hidefile": "^3.0.0",
     "inquirer": "^8.1.2",
     "jsonfile": "^6.1.0",
     "latest-version": "^7.0.0",
+    "minify": "^9.1.0",
     "node-ssh": "^12.0.4",
     "ora": "^5.4.1",
     "pngquant-bin": "^6.0.1",
@@ -79,6 +83,7 @@
     "rollup-plugin-typescript2": "^0.30.0",
     "shelljs": "^0.8.5",
     "tmp": "^0.2.1",
+    "try-to-catch": "^3.0.1",
     "xlsx": "^0.18.5"
   }
 }
