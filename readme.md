@@ -17,6 +17,8 @@ getaddrinfo ENOTFOUND raw.githubusercontent.com
 
 _185.199.108.133 raw.githubusercontent.com_
 
+如果安装不了的，可以把代码下载下来，执行npm i安装依赖，然后执行tsc编译，然后执行npm link即可全局使用
+
 ---
 
 ## 使用
