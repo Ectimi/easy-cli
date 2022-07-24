@@ -17,7 +17,7 @@ const Npm = (options: {
       shell.exec('npm list -g --depth 0');
     } else if (reset) {
       shell.exec('npm config set registry https://registry.npmjs.org/');
-      loggerSuccess('已npm源已重置');
+      loggerSuccess('npm源已重置');
     } else if (taobao) {
       shell.exec('npm config set registry https://registry.npm.taobao.org');
       loggerSuccess('已将npm源设为淘宝镜像');
