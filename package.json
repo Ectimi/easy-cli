@@ -28,8 +28,7 @@
   "devDependencies": {
     "@types/eslint": "^8.4.5",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
-    "@typescript-eslint/parser": "^5.30.6",
-    "compress-images": "^2.0.5"
+    "@typescript-eslint/parser": "^5.30.6"
   },
   "dependencies": {
     "@babel/core": "^7.18.9",
@@ -58,6 +57,7 @@
     "babel-preset-react-app": "^10.0.0",
     "chalk": "^4.1.2",
     "commander": "^9.3.0",
+    "compress-images": "^2.0.5",
     "download-git-repo": "^3.0.2",
     "figlet": "^1.5.2",
     "fs-extra": "^10.1.0",
