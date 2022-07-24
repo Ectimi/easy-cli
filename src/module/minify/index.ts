@@ -1,7 +1,7 @@
 import { Options } from "minify";
 import { minify } from "../../util/minify/minify";
 import tryToCatch from "try-to-catch";
-import tmp, { file } from "tmp";
+import tmp from "tmp";
 import fs from "fs-extra";
 import path from "path";
 import { TCommand } from "../../types";

@@ -116,4 +116,4 @@ easy <命令名> [options]
 
   easy minify your_file.js|.css|.html [-o output_name] 压缩指定文件,默认压缩的文件名为 filename.min.js|.css|.html，可以使用 -o 设置输出的文件名
 
-  其中，以下目录会忽略： img , imgs , image , images , node_modules , less , scss , sass
+  其中，以下目录会忽略： node_modules , img , imgs , image , images , less , scss , sass
