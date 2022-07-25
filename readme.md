@@ -11,13 +11,15 @@ npm i -g easy-cli2
 **_注：_**
 安装的时候可能会出现此错误：
 
-getaddrinfo ENOTFOUND raw.githubusercontent.com
+getaddrinfo ENOTFOUND raw.githubusercontent.com 
 
-在 hosts 文件下添加下面这个地址即可
+或者
+
+connect timeout 185.199.108.133
+
+在 hosts 文件下添加下面这个地址，并重试多几次即可，最好以管理员方式运行
 
 _185.199.108.133 raw.githubusercontent.com_
-
-如果安装不了的，可以把代码下载下来，执行npm i安装依赖，然后执行tsc编译，然后执行npm link即可全局使用
 
 ---
 
