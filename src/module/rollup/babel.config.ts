@@ -5,4 +5,15 @@ export default {
     require.resolve('@babel/preset-env'),
     require.resolve('@babel/preset-react'),
   ],
+  plugins: [
+    [
+      '@babel/plugin-transform-runtime',
+      {
+        corejs: {
+          version:3,
+          proposals:true
+        },
+      },
+    ],
+  ],
 };
